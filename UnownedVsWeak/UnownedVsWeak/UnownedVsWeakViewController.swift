@@ -34,7 +34,7 @@ class UnownedVsWeakViewController: UIViewController {
         case .weak:
             self.tryWeak()
         case .none:
-            print("No action to be taken")
+            self.tryNone()
         }
     }
     
@@ -50,7 +50,7 @@ class UnownedVsWeakViewController: UIViewController {
         // let's get image data from server to load it in our imageview.
         self.getData(from: URL.init(string: self.imageToBeShown)!) { [weak self] (data, response, error) in
             DispatchQueue.main.async {
-                self?.imageView.image = UIImage.init(data: data!)
+                self!.imageView.image = UIImage.init(data: data!)
             }
         }
     }
