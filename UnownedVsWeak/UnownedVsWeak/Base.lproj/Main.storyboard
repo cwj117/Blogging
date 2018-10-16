@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E6r-gl-KfY">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Unowned Vs Weak-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="UnownedVsWeak" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otG-lK-ei7">
+                                <rect key="frame" x="131" y="350.5" width="113" height="30"/>
+                                <state key="normal" title="Check Unowned"/>
+                                <connections>
+                                    <segue destination="MVo-c2-YVQ" kind="show" id="msR-4U-Fe5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9Y-AZ-w64">
+                                <rect key="frame" x="131" y="408" width="113" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Check Unowned"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="otG-lK-ei7" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Saa-Y0-Ek5"/>
+                            <constraint firstItem="otG-lK-ei7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="eCe-eB-GEF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Unowned Vs Weak" id="qhc-ih-Kz3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1336.8" y="132.68365817091455"/>
+        </scene>
+        <!--Unowned Vs Weak View Controller-->
+        <scene sceneID="GNU-fR-T3M">
+            <objects>
+                <viewController id="MVo-c2-YVQ" customClass="UnownedVsWeakViewController" customModule="UnownedVsWeak" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rOK-rL-dHM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blurryImage" translatesAutoresizingMaskIntoConstraints="NO" id="5Q3-0U-G7P">
+                                <rect key="frame" x="67.5" y="114" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="lP0-SU-7EP"/>
+                                    <constraint firstAttribute="width" constant="240" id="suk-Dc-eUh"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5Q3-0U-G7P" firstAttribute="top" secondItem="eg9-LV-9wm" secondAttribute="top" constant="50" id="3qi-Yz-72w"/>
+                            <constraint firstItem="5Q3-0U-G7P" firstAttribute="centerX" secondItem="eg9-LV-9wm" secondAttribute="centerX" id="tdk-yx-q3p"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eg9-LV-9wm"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="5Q3-0U-G7P" id="cNM-7r-1ao"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sko-jb-PWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2256.8000000000002" y="132.68365817091455"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="J7a-Ga-PXV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="E6r-gl-KfY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tuN-22-Y0T">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="afG-x6-cZQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VOu-M8-efM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="397.60000000000002" y="132.68365817091455"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="blurryImage" width="275" height="183"/>
+    </resources>
+</document>
