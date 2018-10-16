@@ -18,21 +18,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otG-lK-ei7">
-                                <rect key="frame" x="131" y="350.5" width="113" height="30"/>
-                                <state key="normal" title="Check Unowned"/>
+                                <rect key="frame" x="112.5" y="310.5" width="150" height="30"/>
+                                <state key="normal" title="Check [unowned self]"/>
                                 <connections>
-                                    <segue destination="MVo-c2-YVQ" kind="show" id="msR-4U-Fe5"/>
+                                    <segue destination="MVo-c2-YVQ" kind="show" identifier="CheckUnownedSelf" id="Rlb-V5-hdX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9Y-AZ-w64">
-                                <rect key="frame" x="131" y="408" width="113" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Check Unowned"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9Y-AZ-w64">
+                                <rect key="frame" x="124" y="370.5" width="127" height="30"/>
+                                <state key="normal" title="Check [weak self] "/>
+                                <connections>
+                                    <segue destination="MVo-c2-YVQ" kind="show" identifier="CheckWeakSelf" id="oAN-bi-Vtg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="otG-lK-ei7" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Saa-Y0-Ek5"/>
+                            <constraint firstItem="otG-lK-ei7" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-40" id="Saa-Y0-Ek5"/>
+                            <constraint firstItem="G9Y-AZ-w64" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="20" id="ZVa-cd-Nju"/>
+                            <constraint firstItem="G9Y-AZ-w64" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="c8E-JX-14z"/>
                             <constraint firstItem="otG-lK-ei7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="eCe-eB-GEF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -96,4 +100,7 @@
     <resources>
         <image name="blurryImage" width="275" height="183"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Rlb-V5-hdX"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -14,5 +14,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CheckWeakSelf" {
+            if let destinationController = segue.destination as? UnownedVsWeakViewController {
+                destinationController.referenceChoice = .weak
+            }
+        }
+        if segue.identifier == "CheckUnownedSelf" {
+            if let destinationController = segue.destination as? UnownedVsWeakViewController {
+                destinationController.referenceChoice = .unowned
+            }
+        }
+    }
 }
 
