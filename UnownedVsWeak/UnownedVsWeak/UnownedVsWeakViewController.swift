@@ -19,6 +19,7 @@ class UnownedVsWeakViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     var referenceChoice: ReferenceChoice = .none
+    let imageToBeShown = "https://images.pexels.com/photos/221433/pexels-photo-221433.jpeg"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,17 +40,25 @@ class UnownedVsWeakViewController: UIViewController {
     
     func tryUnowned() {
         // let's get image data from server to load it in our imageview.
-        self.getData(from: URL.init(string: "https://images.pexels.com/photos/221433/pexels-photo-221433.jpeg")!) { [unowned self] (data, response, error) in
+        self.getData(from: URL.init(string: self.imageToBeShown)!) { [unowned self] (data, response, error) in
             DispatchQueue.main.async {
-                self.imageView.image = UIImage.init(data: data!)
+                    self.imageView.image = UIImage.init(data: data!)
             }
         }
     }
     func tryWeak() {
         // let's get image data from server to load it in our imageview.
-        self.getData(from: URL.init(string: "https://images.pexels.com/photos/221433/pexels-photo-221433.jpeg")!) { [weak self] (data, response, error) in
+        self.getData(from: URL.init(string: self.imageToBeShown)!) { [weak self] (data, response, error) in
             DispatchQueue.main.async {
                 self?.imageView.image = UIImage.init(data: data!)
+            }
+        }
+    }
+    func tryNone() {
+        // let's get image data from server to load it in our imageview.
+        self.getData(from: URL.init(string: self.imageToBeShown)!) { (data, response, error) in
+            DispatchQueue.main.async {
+                self.imageView.image = UIImage.init(data: data!)
             }
         }
     }
@@ -59,7 +68,7 @@ class UnownedVsWeakViewController: UIViewController {
     }
     
     deinit {
-        print("Checking Unowned Controller deallocated")
+        print("Unowned Vs Weak Controller deallocated")
     }
     
 
